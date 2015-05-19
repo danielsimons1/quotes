@@ -52,6 +52,7 @@
 		51F5F7E41B093FA200CD0BA3 /* ARSpeechActivity@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F5F7DA1B093FA200CD0BA3 /* ARSpeechActivity@2x.png */; };
 		51F5F7E51B093FA200CD0BA3 /* ARSpeechActivity@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F5F7DB1B093FA200CD0BA3 /* ARSpeechActivity@3x.png */; };
 		51F5F7E61B093FA200CD0BA3 /* ARSpeechActivity.strings in Resources */ = {isa = PBXBuildFile; fileRef = 51F5F7DC1B093FA200CD0BA3 /* ARSpeechActivity.strings */; };
+		51FBCB511B0A9F23009BADF7 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51FBCB501B0A9F23009BADF7 /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		51F5F7DD1B093FA200CD0BA3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ARSpeechActivity.strings; sourceTree = "<group>"; };
 		51F5F7DE1B093FA200CD0BA3 /* es-ES */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-ES"; path = "es-ES.lproj/ARSpeechActivity.strings"; sourceTree = "<group>"; };
 		51F5F7DF1B093FA200CD0BA3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/ARSpeechActivity.strings; sourceTree = "<group>"; };
+		51FBCB501B0A9F23009BADF7 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51FBCB511B0A9F23009BADF7 /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +149,7 @@
 		5126A82C1B07906300B650BD = {
 			isa = PBXGroup;
 			children = (
+				51FBCB501B0A9F23009BADF7 /* iAd.framework */,
 				5126A8371B07906300B650BD /* quotes */,
 				5126A8541B07906300B650BD /* quotesTests */,
 				5126A8361B07906300B650BD /* Products */,

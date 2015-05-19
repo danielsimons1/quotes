@@ -11,6 +11,7 @@
 #import "chucknorris-Swift.h"
 #import "NSString+HTML.h"
 #import "ARSpeechActivity.h"
+#import <iAd/iAd.h>
 
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet SpringLabel *quoteLabel;
@@ -23,6 +24,8 @@
 
 @property (strong, nonatomic) NSArray *allJokes;
 @property (strong, nonatomic) NSNumber *index;
+
+@property (strong, nonatomic) AVSpeechSynthesizer *synthesizer;
 @end
 
 @implementation ViewController
@@ -32,6 +35,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.index = 0;
+    self.canDisplayBannerAds = YES;
     // Create the request.
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://api.icndb.com/jokes/random/500"]];
     
@@ -44,7 +48,7 @@
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
 
     // Create url connection and fire request
-    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,6 +69,21 @@
     [_responseData appendData:data];
     [self updateUI];
 }
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    if (self.synthesizer) {
+        [self.synthesizer pauseSpeakingAtBoundary:AVSpeechBoundaryImmediate];
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    if (self.synthesizer) {
+        [self.synthesizer continueSpeaking];
+    }
+}
+
 
 - (void)updateUI {
     NSDictionary *quoteDict = [NSJSONSerialization JSONObjectWithData:self.responseData options:nil error:nil];
@@ -137,8 +156,8 @@
     utterance.rate = .08;
     utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-us"];
     
-    AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc] init];
-    [synthesizer speakUtterance:utterance];
+    self.synthesizer = [[AVSpeechSynthesizer alloc] init];
+    [self.synthesizer speakUtterance:utterance];
 }
 
 - (IBAction)didPressNext:(id)sender {
