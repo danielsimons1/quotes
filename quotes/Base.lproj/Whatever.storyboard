@@ -133,6 +133,7 @@
                         <outlet property="activityView" destination="LmL-GC-Quh" id="Kx9-pu-BK5"/>
                         <outlet property="chuckNorris" destination="Rbi-Nk-1Be" id="TRI-Ce-uMy"/>
                         <outlet property="playButton" destination="CG2-Zh-dDv" id="6dR-Qs-3S3"/>
+                        <outlet property="previousButtonItem" destination="iVg-Kr-Af7" id="jwi-AA-ALY"/>
                         <outlet property="quoteLabel" destination="x3n-a8-agX" id="sXX-b0-9ap"/>
                         <outlet property="shareBarButtonItem" destination="r1e-7F-UNu" id="lIa-9Y-Xhq"/>
                         <outlet property="shareButton" destination="KPh-6d-XiN" id="pLI-EY-S1y"/>

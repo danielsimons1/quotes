@@ -22,10 +22,12 @@
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *shareBarButtonItem;
 
-@property (strong, nonatomic) NSArray *allJokes;
+@property (strong, nonatomic) NSDictionary *currentInsult;
+@property (strong, nonatomic) NSMutableArray *allInsults;
 @property (strong, nonatomic) NSNumber *index;
 
 @property (strong, nonatomic) AVSpeechSynthesizer *synthesizer;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *previousButtonItem;
 @end
 
 @implementation ViewController
@@ -35,20 +37,30 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.index = 0;
+    self.allInsults = [[NSMutableArray alloc] init];
     self.canDisplayBannerAds = YES;
     // Create the request.
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://api.icndb.com/jokes/random/500"]];
-    
-    // Specify that it will be a POST request
-    request.HTTPMethod = @"GET";
-    
-    // This is how we set header fields
-    [request setValue:@"application/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-    //[request setValue:@"sc8oTQPaLFmshhUvDq4iPqkxYXZhp18WnbbjsnYM2AnVHozXIk" forHTTPHeaderField:@"X-Mashape-Key"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [self getInsult];
+}
 
-    // Create url connection and fire request
-    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+- (void)getInsult {
+    if ([self.allInsults count] > self.index.integerValue) {
+        _responseData = [self.allInsults objectAtIndex:self.index.integerValue];
+        [self updateUI];
+    } else {
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://pleaseinsult.me/api?severity=mild"]];
+        
+        // Specify that it will be a POST request
+        request.HTTPMethod = @"GET";
+        
+        // This is how we set header fields
+        [request setValue:@"application/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+        //[request setValue:@"sc8oTQPaLFmshhUvDq4iPqkxYXZhp18WnbbjsnYM2AnVHozXIk" forHTTPHeaderField:@"X-Mashape-Key"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        
+        // Create url connection and fire request
+        [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,12 +98,10 @@
 
 
 - (void)updateUI {
-    NSDictionary *quoteDict = [NSJSONSerialization JSONObjectWithData:self.responseData options:nil error:nil];
-    self.allJokes = [quoteDict objectForKey:@"value"];
     
-    NSDictionary *firstJoke = [self.allJokes objectAtIndex:self.index.integerValue];
-
-    NSAttributedString *attributedQuote = [[NSAttributedString alloc] initWithData:[[firstJoke objectForKey:@"joke"] dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
+    self.currentInsult = [NSJSONSerialization JSONObjectWithData:self.responseData options:nil error:nil];
+    [self.allInsults insertObject:self.currentInsult atIndex:self.index];
+    NSAttributedString *attributedQuote = [[NSAttributedString alloc] initWithData:[[self.currentInsult objectForKey:@"insult"] dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
 
     [self.quoteLabel setText:attributedQuote.string];
     //[self.authorLabel setText:[NSString stringWithFormat:@"-%@",[quoteDict objectForKey:@"author"]]];
@@ -161,22 +171,21 @@
 }
 
 - (IBAction)didPressNext:(id)sender {
-    if (self.index.integerValue == self.allJokes.count - 1) {
-        self.index = 0;
-    } else {
-        self.index = [NSNumber numberWithInteger:self.index.integerValue + 1 ];
-    }
-    [self updateUI];
+    self.previousButtonItem.enabled = YES;
+    self.index = [NSNumber numberWithInteger:self.index.integerValue + 1];
+    
+    [self getInsult];
 }
 
 
 - (IBAction)didPressLast:(id)sender {
+    self.index = [NSNumber numberWithInteger:self.index.integerValue - 1];
+
     if (self.index.integerValue == 0) {
-        self.index = [NSNumber numberWithInteger:self.allJokes.count - 1];
-    } else {
-        self.index = [NSNumber numberWithInteger:self.index.integerValue - 1 ];
+        self.previousButtonItem.enabled = NO;
     }
-    [self updateUI];
+    
+    [self getInsult];
 }
 
 - (IBAction)didPressShare:(id)sender {
