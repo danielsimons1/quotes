@@ -44,6 +44,8 @@
 		5126A89A1B0790BC00B650BD /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5126A87D1B0790BC00B650BD /* TransitionManager.swift */; };
 		5126A89B1B0790BC00B650BD /* TransitionZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5126A87E1B0790BC00B650BD /* TransitionZoom.swift */; };
 		5126A89C1B0790BC00B650BD /* UnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5126A87F1B0790BC00B650BD /* UnwindSegue.swift */; };
+		516EF0EF1B1B92EE00F798C5 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 516EF0EC1B1B92EE00F798C5 /* iRate.bundle */; };
+		516EF0F01B1B92EE00F798C5 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 516EF0EE1B1B92EE00F798C5 /* iRate.m */; };
 		51D5AE131B08F21C00E9CB14 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D5AE121B08F21C00E9CB14 /* NSString+HTML.m */; };
 		51F5F7E01B093FA200CD0BA3 /* ARSpeechActivity-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F5F7D51B093FA200CD0BA3 /* ARSpeechActivity-iPad.png */; };
 		51F5F7E11B093FA200CD0BA3 /* ARSpeechActivity-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F5F7D61B093FA200CD0BA3 /* ARSpeechActivity-iPad@2x.png */; };
@@ -110,6 +112,9 @@
 		5126A87D1B0790BC00B650BD /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransitionManager.swift; path = Spring/TransitionManager.swift; sourceTree = "<group>"; };
 		5126A87E1B0790BC00B650BD /* TransitionZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransitionZoom.swift; path = Spring/TransitionZoom.swift; sourceTree = "<group>"; };
 		5126A87F1B0790BC00B650BD /* UnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnwindSegue.swift; path = Spring/UnwindSegue.swift; sourceTree = "<group>"; };
+		516EF0EC1B1B92EE00F798C5 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
+		516EF0ED1B1B92EE00F798C5 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
+		516EF0EE1B1B92EE00F798C5 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
 		51D5AE111B08F21C00E9CB14 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
 		51D5AE121B08F21C00E9CB14 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		51D5AE151B08F2DB00E9CB14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Base; path = "Base.lproj/GTMNSString+HTML.h"; sourceTree = "<group>"; };
@@ -168,6 +173,7 @@
 		5126A8371B07906300B650BD /* quotes */ = {
 			isa = PBXGroup;
 			children = (
+				516EF0EB1B1B92EE00F798C5 /* iRate */,
 				51F5F7D41B093FA200CD0BA3 /* ARSpeechActivity */,
 				5126A8611B0790A500B650BD /* Spring */,
 				5126A83C1B07906300B650BD /* AppDelegate.h */,
@@ -248,6 +254,16 @@
 				5126A87F1B0790BC00B650BD /* UnwindSegue.swift */,
 			);
 			name = Spring;
+			sourceTree = "<group>";
+		};
+		516EF0EB1B1B92EE00F798C5 /* iRate */ = {
+			isa = PBXGroup;
+			children = (
+				516EF0EC1B1B92EE00F798C5 /* iRate.bundle */,
+				516EF0ED1B1B92EE00F798C5 /* iRate.h */,
+				516EF0EE1B1B92EE00F798C5 /* iRate.m */,
+			);
+			path = iRate;
 			sourceTree = "<group>";
 		};
 		51F5F7D41B093FA200CD0BA3 /* ARSpeechActivity */ = {
@@ -352,6 +368,7 @@
 				5126A84C1B07906300B650BD /* LaunchScreen.xib in Resources */,
 				51F5F7E41B093FA200CD0BA3 /* ARSpeechActivity@2x.png in Resources */,
 				51F5F7E11B093FA200CD0BA3 /* ARSpeechActivity-iPad@2x.png in Resources */,
+				516EF0EF1B1B92EE00F798C5 /* iRate.bundle in Resources */,
 				5126A8491B07906300B650BD /* Images.xcassets in Resources */,
 				51F5F7E21B093FA200CD0BA3 /* ARSpeechActivity-iPad@3x.png in Resources */,
 				5126A88F1B0790BC00B650BD /* LoadingView.xib in Resources */,
@@ -380,6 +397,7 @@
 				51D5AE131B08F21C00E9CB14 /* NSString+HTML.m in Sources */,
 				5126A88D1B0790BC00B650BD /* KeyboardLayoutConstraint.swift in Sources */,
 				5126A8981B0790BC00B650BD /* SpringTextView.swift in Sources */,
+				516EF0F01B1B92EE00F798C5 /* iRate.m in Sources */,
 				5126A8801B0790BC00B650BD /* AsyncButton.swift in Sources */,
 				5126A8891B0790BC00B650BD /* DesignableTextView.swift in Sources */,
 				5126A89C1B0790BC00B650BD /* UnwindSegue.swift in Sources */,
