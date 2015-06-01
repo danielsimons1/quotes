@@ -8,10 +8,11 @@
 #import "AVFoundation/AVFoundation.h"
 
 #import "ViewController.h"
-#import "chucknorris-Swift.h"
+#import "mrinsult-Swift.h"
 #import "NSString+HTML.h"
 #import "ARSpeechActivity.h"
 #import <iAd/iAd.h>
+#import "Flurry.h"
 
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet SpringLabel *quoteLabel;
@@ -36,19 +37,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    [Flurry startSession:@"D3PZ9QPQRKVW8NCN5ZD5"];
+
     self.index = 0;
     self.allInsults = [[NSMutableArray alloc] init];
     self.canDisplayBannerAds = YES;
+    self.previousButtonItem.enabled = NO;
     // Create the request.
     [self getInsult];
 }
 
 - (void)getInsult {
+    [Flurry logEvent:@"get insult"];
     if ([self.allInsults count] > self.index.integerValue) {
-        _responseData = [self.allInsults objectAtIndex:self.index.integerValue];
+        self.currentInsult = [self.allInsults objectAtIndex:self.index.integerValue];
         [self updateUI];
     } else {
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://pleaseinsult.me/api?severity=mild"]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://pleaseinsult.me/api?severity=random"]];
         
         // Specify that it will be a POST request
         request.HTTPMethod = @"GET";
@@ -79,6 +84,10 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     // Append the new data to the instance variable you declared
     [_responseData appendData:data];
+    self.currentInsult = [NSJSONSerialization JSONObjectWithData:self.responseData options:nil error:nil];
+    
+    [self.allInsults insertObject:self.currentInsult atIndex:self.index.integerValue];
+
     [self updateUI];
 }
 
@@ -98,9 +107,6 @@
 
 
 - (void)updateUI {
-    
-    self.currentInsult = [NSJSONSerialization JSONObjectWithData:self.responseData options:nil error:nil];
-    [self.allInsults insertObject:self.currentInsult atIndex:self.index];
     NSAttributedString *attributedQuote = [[NSAttributedString alloc] initWithData:[[self.currentInsult objectForKey:@"insult"] dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
 
     [self.quoteLabel setText:attributedQuote.string];
@@ -157,7 +163,8 @@
     }
 }
 - (IBAction)didPressPlay:(id)sender {
-    
+    [Flurry logEvent:@"pressed play button"];
+
     self.playButton.animation = @"morph";
     self.playButton.duration = 2;
     [self.playButton animate];
@@ -173,7 +180,7 @@
 - (IBAction)didPressNext:(id)sender {
     self.previousButtonItem.enabled = YES;
     self.index = [NSNumber numberWithInteger:self.index.integerValue + 1];
-    
+
     [self getInsult];
 }
 
