@@ -37,7 +37,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [Flurry startSession:@"D3PZ9QPQRKVW8NCN5ZD5"];
+    [Flurry startSession:@"3N3Y95QHHDPQW4YVNSBR"];
 
     self.index = 0;
     self.allInsults = [[NSMutableArray alloc] init];
@@ -53,7 +53,7 @@
         self.currentInsult = [self.allInsults objectAtIndex:self.index.integerValue];
         [self updateUI];
     } else {
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://pleaseinsult.me/api?severity=random"]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://quandyfactory.com/insult/json"]];
         
         // Specify that it will be a POST request
         request.HTTPMethod = @"GET";
@@ -207,7 +207,9 @@
     
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[screenshotText, image] applicationActivities:@[speechActivity]];
     
-    activityVC.popoverPresentationController.barButtonItem = self.shareBarButtonItem;
+    if ([activityVC respondsToSelector:@selector(popoverPresentationController)]) {
+        activityVC.popoverPresentationController.barButtonItem = self.shareBarButtonItem; 
+    }
     
     activityVC.excludedActivityTypes = @[UIActivityTypePostToVimeo, UIActivityTypePostToWeibo];
     
