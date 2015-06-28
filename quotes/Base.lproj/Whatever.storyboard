@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="height" constant="390" id="Hc9-8b-9Jv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Superclarendon-Regular" family="Superclarendon" pointSize="16"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="y">
@@ -35,10 +35,13 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="Superclarendon-Regular" family="Superclarendon" pointSize="26"/>
+                                </variation>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="LmL-GC-Quh">
                                 <rect key="frame" x="282" y="281" width="37" height="37"/>
-                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CG2-Zh-dDv" customClass="SpringButton" customModule="chucknorris" customModuleProvider="target">
                                 <rect key="frame" x="327" y="42" width="46" height="46"/>
@@ -46,7 +49,7 @@
                                     <constraint firstAttribute="width" constant="46" id="3Ck-fA-Kuk"/>
                                     <constraint firstAttribute="height" constant="46" id="aej-HP-k02"/>
                                 </constraints>
-                                <state key="normal" image="High Volume-100">
+                                <state key="normal" image="High Volume Filled-100">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -80,15 +83,19 @@
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChuckNorris1" translatesAutoresizingMaskIntoConstraints="NO" id="Rbi-Nk-1Be" customClass="SpringImageView" customModule="chucknorris" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="379" width="106" height="132"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="roundhouse" translatesAutoresizingMaskIntoConstraints="NO" id="Rbi-Nk-1Be" customClass="SpringImageView" customModule="chucknorris" customModuleProvider="target">
+                                <rect key="frame" x="217" y="392" width="166" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Bqo-SJ-pX8"/>
+                                    <constraint firstAttribute="width" constant="166" id="Pvg-N8-eXW"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPh-6d-XiN" customClass="SpringButton" customModule="chucknorris" customModuleProvider="target">
-                                <rect key="frame" x="239" y="49" width="33" height="33"/>
-                                <state key="normal" image="Upload-100"/>
+                                <rect key="frame" x="218" y="38" width="54" height="54"/>
+                                <state key="normal" image="Upload Filled-100"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -97,32 +104,38 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ATz-Vm-FqW" firstAttribute="top" secondItem="Rbi-Nk-1Be" secondAttribute="bottom" constant="1" id="1fL-ne-bfq"/>
+                            <constraint firstItem="Rbi-Nk-1Be" firstAttribute="leading" secondItem="ATz-Vm-FqW" secondAttribute="trailing" constant="-383" id="9Ru-G4-l9E"/>
                             <constraint firstItem="KPh-6d-XiN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="9vR-3U-gMc"/>
                             <constraint firstAttribute="centerX" secondItem="Rbi-Nk-1Be" secondAttribute="centerX" id="BV9-Fe-PLW"/>
                             <constraint firstItem="ATz-Vm-FqW" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="BxD-EB-qUf"/>
                             <constraint firstAttribute="centerX" secondItem="LmL-GC-Quh" secondAttribute="centerX" constant="-0.5" id="CVM-Fd-2Er"/>
                             <constraint firstAttribute="centerX" secondItem="ATz-Vm-FqW" secondAttribute="centerX" id="IiQ-wS-3cG"/>
+                            <constraint firstAttribute="centerX" secondItem="Rbi-Nk-1Be" secondAttribute="centerX" id="Im1-nN-oLH"/>
                             <constraint firstItem="x3n-a8-agX" firstAttribute="top" secondItem="CG2-Zh-dDv" secondAttribute="bottom" constant="-28" id="Kci-f6-sC1"/>
+                            <constraint firstItem="Rbi-Nk-1Be" firstAttribute="leading" secondItem="ATz-Vm-FqW" secondAttribute="trailing" constant="-383" id="Kiv-hd-U7O"/>
                             <constraint firstItem="Rbi-Nk-1Be" firstAttribute="top" secondItem="CG2-Zh-dDv" secondAttribute="bottom" constant="-6" id="LSj-TH-SkB"/>
                             <constraint firstItem="x3n-a8-agX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="Lir-mu-dB2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="x3n-a8-agX" secondAttribute="trailing" constant="10" id="MQZ-gP-m7v"/>
-                            <constraint firstItem="Rbi-Nk-1Be" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="SlW-Ei-cGx"/>
+                            <constraint firstItem="x3n-a8-agX" firstAttribute="leading" secondItem="Rbi-Nk-1Be" secondAttribute="trailing" constant="-357" id="cpx-yA-VVF"/>
                             <constraint firstItem="CG2-Zh-dDv" firstAttribute="centerY" secondItem="KPh-6d-XiN" secondAttribute="centerY" id="jwM-10-4lD"/>
                             <constraint firstAttribute="centerX" secondItem="CG2-Zh-dDv" secondAttribute="centerX" constant="-50" id="kFR-1x-GrC"/>
                             <constraint firstAttribute="centerY" secondItem="LmL-GC-Quh" secondAttribute="centerY" constant="0.5" id="m6K-cz-hfr"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ATz-Vm-FqW" secondAttribute="bottom" id="orw-ZW-6lc"/>
                             <constraint firstItem="CG2-Zh-dDv" firstAttribute="leading" secondItem="KPh-6d-XiN" secondAttribute="trailing" constant="55" id="sSP-nc-SrV"/>
                             <constraint firstItem="CG2-Zh-dDv" firstAttribute="top" secondItem="x3n-a8-agX" secondAttribute="bottom" constant="20" id="tdR-gw-wZD"/>
+                            <constraint firstItem="ATz-Vm-FqW" firstAttribute="top" secondItem="Rbi-Nk-1Be" secondAttribute="bottom" id="woE-h1-C1r"/>
                             <constraint firstAttribute="centerX" secondItem="x3n-a8-agX" secondAttribute="centerX" constant="-0.5" id="y0B-3L-Ajw"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="cpx-yA-VVF"/>
                                 <exclude reference="9vR-3U-gMc"/>
                                 <exclude reference="tdR-gw-wZD"/>
+                                <exclude reference="9Ru-G4-l9E"/>
                                 <exclude reference="BV9-Fe-PLW"/>
+                                <exclude reference="Kiv-hd-U7O"/>
                                 <exclude reference="LSj-TH-SkB"/>
                             </mask>
                         </variation>
@@ -143,8 +156,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ChuckNorris1" width="106" height="132"/>
-        <image name="High Volume-100" width="33" height="33"/>
-        <image name="Upload-100" width="33" height="33"/>
+        <image name="High Volume Filled-100" width="54" height="54"/>
+        <image name="Upload Filled-100" width="54" height="54"/>
+        <image name="roundhouse" width="195" height="192"/>
     </resources>
 </document>
