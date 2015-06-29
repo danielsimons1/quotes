@@ -8,16 +8,17 @@
 #import "AVFoundation/AVFoundation.h"
 
 #import "ViewController.h"
-#import "chucknorris-Swift.h"
+#import "famousquotes-Swift.h"
 #import "NSString+HTML.h"
 #import "ARSpeechActivity.h"
 #import <iAd/iAd.h>
+#import <Parse/Parse.h>
 
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet SpringLabel *quoteLabel;
+@property (weak, nonatomic) IBOutlet SpringLabel *authorLabel;
 @property (strong, nonatomic) IBOutlet SpringButton *playButton;
 @property (strong, nonatomic) IBOutlet SpringButton *shareButton;
-@property (strong, nonatomic) IBOutlet SpringImageView *chuckNorris;
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *shareBarButtonItem;
@@ -34,21 +35,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.index = 0;
+    self.index = [NSNumber numberWithInteger:0];
     self.canDisplayBannerAds = YES;
     // Create the request.
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://api.icndb.com/jokes/random/500"]];
     
-    // Specify that it will be a POST request
-    request.HTTPMethod = @"GET";
+    [[[PFQuery queryWithClassName:@"Quote"] whereKey:@"category" equalTo:@"movie"] findObjectsInBackgroundWithBlock:^(NSArray *quotes, NSError *error) {
+        self.allJokes = quotes;
+        [self updateUI];
+    }];
     
-    // This is how we set header fields
-    [request setValue:@"application/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-    //[request setValue:@"sc8oTQPaLFmshhUvDq4iPqkxYXZhp18WnbbjsnYM2AnVHozXIk" forHTTPHeaderField:@"X-Mashape-Key"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-
-    // Create url connection and fire request
-    [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,19 +51,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    // A response has been received, this is where we initialize the instance var you created
-    // so that we can append data to it in the didReceiveData method
-    // Furthermore, this method is called each time there is a redirect so reinitializing it
-    // also serves to clear it
-    _responseData = [[NSMutableData alloc] init];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    // Append the new data to the instance variable you declared
-    [_responseData appendData:data];
-    [self updateUI];
-}
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -86,15 +68,12 @@
 
 
 - (void)updateUI {
-    NSDictionary *quoteDict = [NSJSONSerialization JSONObjectWithData:self.responseData options:nil error:nil];
-    self.allJokes = [quoteDict objectForKey:@"value"];
-    
     NSDictionary *firstJoke = [self.allJokes objectAtIndex:self.index.integerValue];
 
-    NSAttributedString *attributedQuote = [[NSAttributedString alloc] initWithData:[[firstJoke objectForKey:@"joke"] dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
-
+    NSAttributedString *attributedQuote = [[NSAttributedString alloc] initWithData:[[firstJoke objectForKey:@"text"] dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
+    
     [self.quoteLabel setText:attributedQuote.string];
-    //[self.authorLabel setText:[NSString stringWithFormat:@"-%@",[quoteDict objectForKey:@"author"]]];
+    [self.authorLabel setText:[NSString stringWithFormat:@"%@",[firstJoke objectForKey:@"author"]]];
     
     self.quoteLabel.animation = @"slideDown";
     self.quoteLabel.alpha = 1;
@@ -108,21 +87,21 @@
 
     self.playButton.animation = @"flip";
     self.playButton.alpha = 1;
-    self.playButton.duration = 1;
-    self.playButton.delay = .5;
+    self.playButton.duration = .4;
+    self.playButton.delay = .4;
     [self.playButton animate];
     
     self.shareButton.animation = @"flip";
     self.shareButton.alpha = 1;
-    self.shareButton.duration = 1;
-    self.shareButton.delay = .3;
+    self.shareButton.duration = .4;
+    self.shareButton.delay = .4;
     [self.shareButton animate];
     
-    
-    self.chuckNorris.animation = @"flip";
-    self.chuckNorris.duration = .7;
-    self.chuckNorris.delay = .2;
-    [self.chuckNorris animate];
+    self.authorLabel.animation = @"slideUp";
+    self.authorLabel.alpha = 1;
+    self.authorLabel.duration = .6;
+    self.authorLabel.velocity = 3;
+    [self.authorLabel animate];
     
     [self.activityView stopAnimating];
 }
@@ -149,7 +128,8 @@
 - (IBAction)didPressPlay:(id)sender {
     
     self.playButton.animation = @"morph";
-    self.playButton.duration = 2;
+    self.playButton.duration = 1;
+    self.playButton.delay = 0;
     [self.playButton animate];
     AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc] initWithString:self.quoteLabel.text];
     //utterance.rate = AVSpeechUtteranceDefaultSpeechRate;
@@ -185,11 +165,11 @@
         [sender animate];
     }
     NSString *screenshotText = self.quoteLabel.text;
-    UIImage *image = self.chuckNorris.image;
+    NSString *authorText = self.authorLabel.text;
     
     ARSpeechActivity *speechActivity = [[ARSpeechActivity alloc] init];
     
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[screenshotText, image] applicationActivities:@[speechActivity]];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[screenshotText,authorText, @"... For more quotes download http://itunes.apple.com/app/id1014011209"] applicationActivities:@[speechActivity]];
     
     activityVC.popoverPresentationController.barButtonItem = self.shareBarButtonItem;
     
