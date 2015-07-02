@@ -40,7 +40,11 @@
     // Create the request.
     
     [[[PFQuery queryWithClassName:@"Quote"] whereKey:@"category" equalTo:@"movie"] findObjectsInBackgroundWithBlock:^(NSArray *quotes, NSError *error) {
+        for (PFObject *quote in quotes) {
+            [quote pin];
+        }
         self.allJokes = quotes;
+        
         [self updateUI];
     }];
     
