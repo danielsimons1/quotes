@@ -8,7 +8,7 @@
 #import "AVFoundation/AVFoundation.h"
 
 #import "ViewController.h"
-#import "famousquotes-Swift.h"
+#import "einstenquotes-Swift.h"
 #import "NSString+HTML.h"
 #import "ARSpeechActivity.h"
 #import <iAd/iAd.h>
@@ -17,8 +17,8 @@
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet SpringLabel *quoteLabel;
 @property (weak, nonatomic) IBOutlet SpringLabel *authorLabel;
+@property (weak, nonatomic) IBOutlet SpringImageView *authorPhoto;
 @property (strong, nonatomic) IBOutlet SpringButton *playButton;
-@property (strong, nonatomic) IBOutlet SpringButton *shareButton;
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *shareBarButtonItem;
@@ -39,7 +39,7 @@
     self.canDisplayBannerAds = YES;
     // Create the request.
     
-    [[[PFQuery queryWithClassName:@"Quote"] whereKey:@"category" equalTo:@"movie"] findObjectsInBackgroundWithBlock:^(NSArray *quotes, NSError *error) {
+    [[[PFQuery queryWithClassName:@"Quote"] whereKey:@"category" equalTo:@"einstein"] findObjectsInBackgroundWithBlock:^(NSArray *quotes, NSError *error) {
         for (PFObject *quote in quotes) {
             [quote pin];
         }
@@ -95,17 +95,17 @@
     self.playButton.delay = .4;
     [self.playButton animate];
     
-    self.shareButton.animation = @"flip";
-    self.shareButton.alpha = 1;
-    self.shareButton.duration = .4;
-    self.shareButton.delay = .4;
-    [self.shareButton animate];
-    
     self.authorLabel.animation = @"slideUp";
     self.authorLabel.alpha = 1;
     self.authorLabel.duration = .6;
     self.authorLabel.velocity = 3;
     [self.authorLabel animate];
+    
+    self.authorPhoto.animation = @"slideUp";
+    self.authorPhoto.alpha = 1;
+    self.authorPhoto.duration = .6;
+    self.authorPhoto.velocity = 3;
+    [self.authorPhoto animate];
     
     [self.activityView stopAnimating];
 }
@@ -173,10 +173,11 @@
     
     ARSpeechActivity *speechActivity = [[ARSpeechActivity alloc] init];
     
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[screenshotText,authorText, @"... For more quotes download http://itunes.apple.com/app/id1014011209"] applicationActivities:@[speechActivity]];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[screenshotText,authorText, @"... For more quotes download http://itunes.apple.com/app/id1015381239"] applicationActivities:@[speechActivity]];
     
-    activityVC.popoverPresentationController.barButtonItem = self.shareBarButtonItem;
-    
+    if ([activityVC respondsToSelector:@selector(popoverPresentationController)]) {
+        activityVC.popoverPresentationController.barButtonItem = self.shareBarButtonItem;
+    }
     activityVC.excludedActivityTypes = @[UIActivityTypePostToVimeo, UIActivityTypePostToWeibo];
     
     [self presentViewController:activityVC animated:YES completion:nil];

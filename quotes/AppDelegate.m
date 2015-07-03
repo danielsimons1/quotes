@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "Flurry.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +22,27 @@
     // Initialize Parse.
     [Parse setApplicationId:@"gKFyeO0cch6VXDFL7bKAuz8oWclIU7IxPZGTRDd3"
                   clientKey:@"Iq9vAhKgGB2Lfgd2DreOxKSZ1ohcDP6FQfqaqTXo"];
+    
+    // Register for Push Notitications
+    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                    UIUserNotificationTypeBadge |
+                                                    UIUserNotificationTypeSound);
+    
+#ifdef __IPHONE_8_0
+    if(NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge|UIUserNotificationTypeSound|UIUserNotificationTypeAlert) categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    }
+#else
+    //register to receive notifications
+    UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:myTypes];
+#endif
+    if (!TARGET_IPHONE_SIMULATOR) {
+        [application registerForRemoteNotifications];
+    }
+    [Flurry startSession:@"VPJJC27ZW9VQ42HH83K4"];
+    
     return YES;
 }
 
@@ -111,6 +133,17 @@
     _managedObjectContext = [[NSManagedObjectContext alloc] init];
     [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     return _managedObjectContext;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [PFPush handlePush:userInfo];
 }
 
 #pragma mark - Core Data Saving support
