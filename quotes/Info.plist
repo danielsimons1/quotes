@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>8</string>
+	<string>9</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIBackgroundModes</key>
@@ -50,7 +50,7 @@
 	<key>appsClassName</key>
 	<string>QuoteApps</string>
 	<key>appstoreURL</key>
-	<string>http://itunes.apple.com/app/id 1015938377</string>
+	<string>http://itunes.apple.com/app/id1015938377</string>
 	<key>quoteCategory</key>
 	<string>bacon</string>
 </dict>
