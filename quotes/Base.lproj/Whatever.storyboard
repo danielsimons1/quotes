@@ -32,7 +32,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.37254901959999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="LzA-9F-Yfc"/>
@@ -72,7 +72,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quote Of the Day" lineBreakMode="wordWrap" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3n-a8-agX" customClass="SpringLabel" customModule="baconquotes" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quote Of the Day" lineBreakMode="wordWrap" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3n-a8-agX" customClass="SpringLabel" customModule="gandhiquotes" customModuleProvider="target">
                                 <rect key="frame" x="26" y="89" width="548" height="140"/>
                                 <fontDescription key="fontDescription" name="Superclarendon-Regular" family="Superclarendon" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -121,7 +121,7 @@
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y73-mV-LSK" customClass="SpringLabel" customModule="baconquotes" customModuleProvider="target">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y73-mV-LSK" customClass="SpringLabel" customModule="gandhiquotes" customModuleProvider="target">
                                 <rect key="frame" x="26" y="398" width="548" height="25"/>
                                 <fontDescription key="fontDescription" name="Superclarendon-Regular" family="Superclarendon" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -133,8 +133,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Author" translatesAutoresizingMaskIntoConstraints="NO" id="8sP-o9-Tsa" customClass="SpringImageView" customModule="baconquotes" customModuleProvider="target">
-                                <rect key="frame" x="221" y="249" width="160" height="180"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Author" translatesAutoresizingMaskIntoConstraints="NO" id="8sP-o9-Tsa" customClass="SpringImageView" customModule="gandhiquotes" customModuleProvider="target">
+                                <rect key="frame" x="227" y="249" width="148" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="kJ5-Yf-ao8"/>
                                 </constraints>
@@ -143,7 +143,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CG2-Zh-dDv" customClass="SpringButton" customModule="baconquotes" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CG2-Zh-dDv" customClass="SpringButton" customModule="gandhiquotes" customModuleProvider="target">
                                 <rect key="frame" x="273" y="13" width="54" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="yEr-e0-fjy"/>
@@ -159,7 +159,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.37254901960784315" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="y73-mV-LSK" secondAttribute="trailing" constant="10" id="6wE-H6-XMd"/>
                             <constraint firstItem="ATz-Vm-FqW" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="BxD-EB-qUf"/>
@@ -218,7 +218,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Author" width="160" height="200"/>
+        <image name="Author" width="148" height="200"/>
         <image name="High Volume Filled-100" width="54" height="54"/>
         <image name="Menu" width="28" height="28"/>
         <image name="share" width="17" height="24"/>

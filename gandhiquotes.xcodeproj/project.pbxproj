@@ -87,7 +87,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5126A8351B07906300B650BD /* baconquotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = baconquotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5126A8351B07906300B650BD /* gandhiquotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gandhiquotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5126A8391B07906300B650BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5126A83A1B07906300B650BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5126A83C1B07906300B650BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -236,7 +236,7 @@
 		5126A8361B07906300B650BD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5126A8351B07906300B650BD /* baconquotes.app */,
+				5126A8351B07906300B650BD /* gandhiquotes.app */,
 				5126A8511B07906300B650BD /* quotesTests.xctest */,
 			);
 			name = Products;
@@ -386,9 +386,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5126A8341B07906300B650BD /* baconquotes */ = {
+		5126A8341B07906300B650BD /* gandhiquotes */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5126A85B1B07906300B650BD /* Build configuration list for PBXNativeTarget "baconquotes" */;
+			buildConfigurationList = 5126A85B1B07906300B650BD /* Build configuration list for PBXNativeTarget "gandhiquotes" */;
 			buildPhases = (
 				5126A8311B07906300B650BD /* Sources */,
 				5126A8321B07906300B650BD /* Frameworks */,
@@ -398,9 +398,9 @@
 			);
 			dependencies = (
 			);
-			name = baconquotes;
+			name = gandhiquotes;
 			productName = quotes;
-			productReference = 5126A8351B07906300B650BD /* baconquotes.app */;
+			productReference = 5126A8351B07906300B650BD /* gandhiquotes.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5126A8501B07906300B650BD /* quotesTests */ = {
@@ -448,7 +448,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5126A8301B07906300B650BD /* Build configuration list for PBXProject "baconquotes" */;
+			buildConfigurationList = 5126A8301B07906300B650BD /* Build configuration list for PBXProject "gandhiquotes" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -463,7 +463,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5126A8341B07906300B650BD /* baconquotes */,
+				5126A8341B07906300B650BD /* gandhiquotes */,
 				5126A8501B07906300B650BD /* quotesTests */,
 			);
 		};
@@ -558,7 +558,7 @@
 /* Begin PBXTargetDependency section */
 		5126A8531B07906300B650BD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5126A8341B07906300B650BD /* baconquotes */;
+			target = 5126A8341B07906300B650BD /* gandhiquotes */;
 			targetProxy = 5126A8521B07906300B650BD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -709,8 +709,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/quotes/Flurry",
 				);
-				PRODUCT_NAME = baconquotes;
-				PROVISIONING_PROFILE = "7ae97b54-dfb6-4d75-bb1d-73d209bd1c50";
+				PRODUCT_NAME = gandhiquotes;
+				PROVISIONING_PROFILE = "3567e5a4-1861-48a4-8eb7-6b4a957b5d66";
 			};
 			name = Debug;
 		};
@@ -732,8 +732,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/quotes/Flurry",
 				);
-				PRODUCT_NAME = baconquotes;
-				PROVISIONING_PROFILE = "7ae97b54-dfb6-4d75-bb1d-73d209bd1c50";
+				PRODUCT_NAME = gandhiquotes;
+				PROVISIONING_PROFILE = "3567e5a4-1861-48a4-8eb7-6b4a957b5d66";
 			};
 			name = Release;
 		};
@@ -774,7 +774,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5126A8301B07906300B650BD /* Build configuration list for PBXProject "baconquotes" */ = {
+		5126A8301B07906300B650BD /* Build configuration list for PBXProject "gandhiquotes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5126A8591B07906300B650BD /* Debug */,
@@ -783,7 +783,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5126A85B1B07906300B650BD /* Build configuration list for PBXNativeTarget "baconquotes" */ = {
+		5126A85B1B07906300B650BD /* Build configuration list for PBXNativeTarget "gandhiquotes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5126A85C1B07906300B650BD /* Debug */,

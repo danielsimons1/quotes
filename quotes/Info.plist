@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Francis Bacon Quotes</string>
+	<string>Gandhi Quotes</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>8</string>
+	<string>9</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIBackgroundModes</key>
@@ -46,12 +46,12 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>appTitle</key>
-	<string>Francis Bacon Quotes</string>
+	<string>Gandhi Quotes</string>
 	<key>appsClassName</key>
 	<string>QuoteApps</string>
 	<key>appstoreURL</key>
-	<string>http://itunes.apple.com/app/id 1015938377</string>
+	<string>http://itunes.apple.com/app/id1015980512</string>
 	<key>quoteCategory</key>
-	<string>bacon</string>
+	<string>gandhi</string>
 </dict>
 </plist>

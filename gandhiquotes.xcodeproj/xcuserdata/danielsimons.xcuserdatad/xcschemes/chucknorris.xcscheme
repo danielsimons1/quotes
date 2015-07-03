@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5126A8341B07906300B650BD"
-               BuildableName = "einstenquotes.app"
-               BlueprintName = "baconquotes"
-               ReferencedContainer = "container:baconquotes.xcodeproj">
+               BuildableName = "gandhiquotes.app"
+               BlueprintName = "gandhiquotes"
+               ReferencedContainer = "container:gandhiquotes.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5126A8341B07906300B650BD"
-            BuildableName = "einstenquotes.app"
-            BlueprintName = "baconquotes"
-            ReferencedContainer = "container:baconquotes.xcodeproj">
+            BuildableName = "gandhiquotes.app"
+            BlueprintName = "gandhiquotes"
+            ReferencedContainer = "container:gandhiquotes.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5126A8341B07906300B650BD"
-            BuildableName = "einstenquotes.app"
-            BlueprintName = "baconquotes"
-            ReferencedContainer = "container:baconquotes.xcodeproj">
+            BuildableName = "gandhiquotes.app"
+            BlueprintName = "gandhiquotes"
+            ReferencedContainer = "container:gandhiquotes.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5126A8341B07906300B650BD"
-            BuildableName = "einstenquotes.app"
-            BlueprintName = "baconquotes"
-            ReferencedContainer = "container:baconquotes.xcodeproj">
+            BuildableName = "gandhiquotes.app"
+            BlueprintName = "gandhiquotes"
+            ReferencedContainer = "container:gandhiquotes.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
