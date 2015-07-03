@@ -8,7 +8,7 @@
 #import "AVFoundation/AVFoundation.h"
 
 #import "ViewController.h"
-#import "einstenquotes-Swift.h"
+#import "baconquotes-Swift.h"
 #import "NSString+HTML.h"
 #import "ARSpeechActivity.h"
 #import <iAd/iAd.h>
@@ -38,8 +38,8 @@
     self.index = [NSNumber numberWithInteger:0];
     self.canDisplayBannerAds = YES;
     // Create the request.
-    
-    [[[PFQuery queryWithClassName:@"Quote"] whereKey:@"category" equalTo:@"einstein"] findObjectsInBackgroundWithBlock:^(NSArray *quotes, NSError *error) {
+    NSString *categoryString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"quoteCategory"];
+    [[[PFQuery queryWithClassName:@"Quote"] whereKey:@"category" equalTo:categoryString] findObjectsInBackgroundWithBlock:^(NSArray *quotes, NSError *error) {
         for (PFObject *quote in quotes) {
             [quote pin];
         }
@@ -173,7 +173,8 @@
     
     ARSpeechActivity *speechActivity = [[ARSpeechActivity alloc] init];
     
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[screenshotText,authorText, @"... For more quotes download http://itunes.apple.com/app/id1015381239"] applicationActivities:@[speechActivity]];
+    NSString *appstoreURL = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"appstoreURL"];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[screenshotText,authorText, [NSString stringWithFormat:@"... For more quotes download %@", appstoreURL]] applicationActivities:@[speechActivity]];
     
     if ([activityVC respondsToSelector:@selector(popoverPresentationController)]) {
         activityVC.popoverPresentationController.barButtonItem = self.shareBarButtonItem;

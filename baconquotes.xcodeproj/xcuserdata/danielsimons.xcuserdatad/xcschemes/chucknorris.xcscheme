@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5126A8341B07906300B650BD"
                BuildableName = "einstenquotes.app"
-               BlueprintName = "einstenquotes"
-               ReferencedContainer = "container:einstenquotes.xcodeproj">
+               BlueprintName = "baconquotes"
+               ReferencedContainer = "container:baconquotes.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5126A8341B07906300B650BD"
             BuildableName = "einstenquotes.app"
-            BlueprintName = "einstenquotes"
-            ReferencedContainer = "container:einstenquotes.xcodeproj">
+            BlueprintName = "baconquotes"
+            ReferencedContainer = "container:baconquotes.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -54,8 +54,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5126A8341B07906300B650BD"
             BuildableName = "einstenquotes.app"
-            BlueprintName = "einstenquotes"
-            ReferencedContainer = "container:einstenquotes.xcodeproj">
+            BlueprintName = "baconquotes"
+            ReferencedContainer = "container:baconquotes.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -73,8 +73,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5126A8341B07906300B650BD"
             BuildableName = "einstenquotes.app"
-            BlueprintName = "einstenquotes"
-            ReferencedContainer = "container:einstenquotes.xcodeproj">
+            BlueprintName = "baconquotes"
+            ReferencedContainer = "container:baconquotes.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

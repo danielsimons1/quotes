@@ -13,7 +13,6 @@
 
 #define numRows 5
 #define rowHeight 54
-#define appTitle @"Albert Einstein Quotes"
 
 @interface LeftMenuViewController () {
 NSMutableArray *titles;
@@ -40,12 +39,15 @@ NSMutableArray *titles;
     });
     
     titles = [NSMutableArray array];
-    [[PFQuery queryWithClassName:@"QuoteApps"] findObjectsInBackgroundWithBlock:^(NSArray *quotes, NSError *error) {
+    NSString *myAppsClassName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"appsClassName"];
+    [[PFQuery queryWithClassName:myAppsClassName] findObjectsInBackgroundWithBlock:^(NSArray *quotes, NSError *error) {
         for (PFObject *quote in quotes) {
             [quote pin];
         }
+        
+        NSString *appTitle = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"appTitle"];
         if (!quotes || quotes.count < 1) {
-            [[[PFQuery queryWithClassName:@"QuoteApps"] fromLocalDatastore] findObjectsInBackgroundWithBlock:^(NSArray *quotesLocal, NSError *error) {
+            [[[PFQuery queryWithClassName:myAppsClassName] fromLocalDatastore] findObjectsInBackgroundWithBlock:^(NSArray *quotesLocal, NSError *error) {
                 for (PFObject *q in quotesLocal) {
                     if (![[q objectForKey:@"title"] isEqualToString:appTitle]) {
                         [titles addObject:q];
