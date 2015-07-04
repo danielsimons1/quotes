@@ -8,7 +8,7 @@
 #import "AVFoundation/AVFoundation.h"
 
 #import "ViewController.h"
-#import "gandhiquotes-Swift.h"
+#import "mlkquotes-Swift.h"
 #import "NSString+HTML.h"
 #import "ARSpeechActivity.h"
 #import <iAd/iAd.h>
