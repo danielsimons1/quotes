@@ -11,7 +11,7 @@
 #import "Flurry.h"
 #import <Parse/Parse.h>
 
-#define numRows 5
+#define numRows 6
 #define rowHeight 54
 #define appTitle @"Albert Einstein Quotes"
 
