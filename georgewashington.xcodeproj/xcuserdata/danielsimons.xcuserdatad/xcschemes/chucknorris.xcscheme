@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5126A8341B07906300B650BD"
                BuildableName = "gandhiquotes.app"
-               BlueprintName = "gandhiquotes"
-               ReferencedContainer = "container:gandhiquotes.xcodeproj">
+               BlueprintName = "georgewashington"
+               ReferencedContainer = "container:georgewashington.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5126A8341B07906300B650BD"
             BuildableName = "gandhiquotes.app"
-            BlueprintName = "gandhiquotes"
-            ReferencedContainer = "container:gandhiquotes.xcodeproj">
+            BlueprintName = "georgewashington"
+            ReferencedContainer = "container:georgewashington.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -54,8 +54,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5126A8341B07906300B650BD"
             BuildableName = "gandhiquotes.app"
-            BlueprintName = "gandhiquotes"
-            ReferencedContainer = "container:gandhiquotes.xcodeproj">
+            BlueprintName = "georgewashington"
+            ReferencedContainer = "container:georgewashington.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -73,8 +73,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5126A8341B07906300B650BD"
             BuildableName = "gandhiquotes.app"
-            BlueprintName = "gandhiquotes"
-            ReferencedContainer = "container:gandhiquotes.xcodeproj">
+            BlueprintName = "georgewashington"
+            ReferencedContainer = "container:georgewashington.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

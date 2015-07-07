@@ -134,7 +134,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Author" translatesAutoresizingMaskIntoConstraints="NO" id="8sP-o9-Tsa" customClass="SpringImageView" customModule="gandhiquotes" customModuleProvider="target">
-                                <rect key="frame" x="227" y="249" width="148" height="180"/>
+                                <rect key="frame" x="212" y="249" width="178" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="kJ5-Yf-ao8"/>
                                 </constraints>
@@ -218,7 +218,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Author" width="148" height="200"/>
+        <image name="Author" width="178" height="200"/>
         <image name="High Volume Filled-100" width="54" height="54"/>
         <image name="Menu" width="28" height="28"/>
         <image name="share" width="17" height="24"/>

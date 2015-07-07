@@ -33,8 +33,8 @@ NSMutableArray *titles;
         tableView.backgroundColor = [UIColor clearColor];
         tableView.backgroundView = nil;
         tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        tableView.bounces = NO;
-        tableView.scrollsToTop = NO;
+        tableView.bounces = YES;
+        tableView.scrollsToTop = YES;
         tableView;
     });
     

@@ -8,7 +8,7 @@
 #import "AVFoundation/AVFoundation.h"
 
 #import "ViewController.h"
-#import "gandhiquotes-Swift.h"
+#import "georgewashington-Swift.h"
 #import "NSString+HTML.h"
 #import "ARSpeechActivity.h"
 #import <iAd/iAd.h>
@@ -38,16 +38,26 @@
     self.index = [NSNumber numberWithInteger:0];
     self.canDisplayBannerAds = YES;
     // Create the request.
+    [self updateUIWithJokes];
+}
+
+- (void)updateUIWithJokes {
     NSString *categoryString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"quoteCategory"];
-    [[[PFQuery queryWithClassName:@"Quote"] whereKey:@"category" equalTo:categoryString] findObjectsInBackgroundWithBlock:^(NSArray *quotes, NSError *error) {
+    PFQuery *query = [[PFQuery queryWithClassName:@"Quote"] whereKey:@"category" equalTo:categoryString];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *quotes, NSError *error) {
         for (PFObject *quote in quotes) {
             [quote pin];
         }
         self.allJokes = quotes;
-        
-        [self updateUI];
+        if (!self.allJokes || self.allJokes.count < 1) {
+            [query fromLocalDatastore];
+            [query findObjectsInBackgroundWithBlock:^(NSArray *quotes, NSError *error) {
+                [self updateUI];
+            }];
+        } else {
+            [self updateUI];
+        }
     }];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,6 +71,13 @@
     
     if (self.synthesizer) {
         [self.synthesizer pauseSpeakingAtBoundary:AVSpeechBoundaryImmediate];
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (!self.allJokes || self.allJokes.count < 1) {
+        [self updateUIWithJokes];
     }
 }
 
