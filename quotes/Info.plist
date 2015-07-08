@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>George Washington Quotes</string>
+	<string>Benjamin Franklin Quotes</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -46,12 +46,12 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>appTitle</key>
-	<string>George Washington Quotes</string>
+	<string>Benjamin Franklin Quotes</string>
 	<key>appsClassName</key>
 	<string>QuoteApps</string>
 	<key>appstoreURL</key>
-	<string>http://itunes.apple.com/app/id1016293025</string>
+	<string>http://itunes.apple.com/app/id1016433840</string>
 	<key>quoteCategory</key>
-	<string>georgewashington</string>
+	<string>benjaminfranklin</string>
 </dict>
 </plist>

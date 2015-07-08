@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5126A8341B07906300B650BD"
-               BuildableName = "gandhiquotes.app"
-               BlueprintName = "georgewashington"
-               ReferencedContainer = "container:georgewashington.xcodeproj">
+               BuildableName = "georgewashington.app"
+               BlueprintName = "benjaminfranklin"
+               ReferencedContainer = "container:benjaminfranklin.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5126A8341B07906300B650BD"
-            BuildableName = "gandhiquotes.app"
-            BlueprintName = "georgewashington"
-            ReferencedContainer = "container:georgewashington.xcodeproj">
+            BuildableName = "georgewashington.app"
+            BlueprintName = "benjaminfranklin"
+            ReferencedContainer = "container:benjaminfranklin.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5126A8341B07906300B650BD"
-            BuildableName = "gandhiquotes.app"
-            BlueprintName = "georgewashington"
-            ReferencedContainer = "container:georgewashington.xcodeproj">
+            BuildableName = "georgewashington.app"
+            BlueprintName = "benjaminfranklin"
+            ReferencedContainer = "container:benjaminfranklin.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5126A8341B07906300B650BD"
-            BuildableName = "gandhiquotes.app"
-            BlueprintName = "georgewashington"
-            ReferencedContainer = "container:georgewashington.xcodeproj">
+            BuildableName = "georgewashington.app"
+            BlueprintName = "benjaminfranklin"
+            ReferencedContainer = "container:benjaminfranklin.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
