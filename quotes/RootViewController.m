@@ -18,7 +18,9 @@
     self.contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"];
     
     self.leftMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenuViewController"];
+    self.scaleBackgroundImageView = NO;
     
+    [self setBackgroundImage:[UIImage imageNamed:@"leftmenubackground"]];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

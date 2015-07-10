@@ -8,7 +8,7 @@
 #import "AVFoundation/AVFoundation.h"
 
 #import "ViewController.h"
-#import "benjaminfranklin-Swift.h"
+#import "starwarsquotes-Swift.h"
 #import "NSString+HTML.h"
 #import "ARSpeechActivity.h"
 #import <iAd/iAd.h>
@@ -94,6 +94,7 @@
     NSAttributedString *attributedQuote = [[NSAttributedString alloc] initWithData:[[firstJoke objectForKey:@"text"] dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
     
     [self.quoteLabel setText:attributedQuote.string];
+    [self.authorLabel setHidden:NO];
     [self.authorLabel setText:[NSString stringWithFormat:@"%@",[firstJoke objectForKey:@"author"]]];
     
     self.quoteLabel.animation = @"slideDown";
@@ -102,9 +103,9 @@
     self.quoteLabel.velocity = 2;
     [self.quoteLabel animate];
     
-//    self.authorLabel.animation = @"zoomIn";
-//    self.authorLabel.alpha = 1;
-//    [self.authorLabel animate];
+    self.authorLabel.animation = @"zoomIn";
+    self.authorLabel.alpha = 1;
+    [self.authorLabel animate];
 
     self.playButton.animation = @"flip";
     self.playButton.alpha = 1;

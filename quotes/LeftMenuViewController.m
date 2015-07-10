@@ -38,6 +38,7 @@ NSMutableArray *titles;
         tableView;
     });
     
+    [self.view setBackgroundColor:[UIColor clearColor]];
     titles = [NSMutableArray array];
     NSString *myAppsClassName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"appsClassName"];
     [[PFQuery queryWithClassName:myAppsClassName] findObjectsInBackgroundWithBlock:^(NSArray *quotes, NSError *error) {
@@ -63,8 +64,8 @@ NSMutableArray *titles;
                     [titles addObject:q];
                 }
             }
-            [self.view addSubview:self.tableView];
-            [self.tableView reloadData];
+            //[self.view addSubview:self.tableView];
+            //[self.tableView reloadData];
         }
     }];
     // titles = @[[NSMutableDictionary dictionaryWithDictionary:@{@"title":@"Agent Commission",@"deeplink":@"Realtor-Commission-Calculator://", @"downloadlink":@"https://itunes.apple.com/us/app/real-estate-agent-commission/id984948275?ls=1&mt=8"}],[NSMutableDictionary dictionaryWithDictionary:@{@"title":@"Future Value",@"deeplink":@"Future-Value-Calculator://", @"downloadlink":@"https://itunes.apple.com/us/app/future-value-calculator/id981005601?ls=1&mt=8"}], [NSMutableDictionary dictionaryWithDictionary:@{@"title":@"Return On Investment",@"deeplink":@"Return-On-Investment://", @"downloadlink":@"https://itunes.apple.com/us/app/return-on-investment-calculator/id983864102?ls=1&mt=8"}], [NSMutableDictionary dictionaryWithDictionary:@{@"title":@"Rent Split",@"deeplink":@"Split-Rent://", @"downloadlink":@"https://itunes.apple.com/us/app/rent-split-calculator/id984741713?ls=1&mt=8"}]];
