@@ -11,7 +11,7 @@
 #import "Flurry.h"
 #import <Parse/Parse.h>
 
-#define numRows 6
+#define numRows 7
 #define rowHeight 54
 
 @interface LeftMenuViewController () {
@@ -33,7 +33,7 @@ NSMutableArray *titles;
         tableView.backgroundColor = [UIColor clearColor];
         tableView.backgroundView = nil;
         tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        tableView.bounces = NO;
+        tableView.bounces = YES;
         tableView.scrollsToTop = NO;
         tableView;
     });
