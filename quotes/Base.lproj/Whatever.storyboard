@@ -73,7 +73,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quote Of the Day" lineBreakMode="wordWrap" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3n-a8-agX" customClass="SpringLabel" customModule="starwarsquotes" customModuleProvider="target">
-                                <rect key="frame" x="26" y="89" width="548" height="140"/>
+                                <rect key="frame" x="26" y="89" width="548" height="20"/>
                                 <fontDescription key="fontDescription" name="Superclarendon-Regular" family="Superclarendon" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -121,16 +121,6 @@
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Author" translatesAutoresizingMaskIntoConstraints="NO" id="8sP-o9-Tsa" customClass="SpringImageView" customModule="starwarsquotes" customModuleProvider="target">
-                                <rect key="frame" x="122" y="249" width="357" height="180"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="kJ5-Yf-ao8"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CG2-Zh-dDv" customClass="SpringButton" customModule="starwarsquotes" customModuleProvider="target">
                                 <rect key="frame" x="273" y="13" width="54" height="54"/>
                                 <constraints>
@@ -169,8 +159,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="x3n-a8-agX" secondAttribute="trailing" constant="10" id="MQZ-gP-m7v"/>
                             <constraint firstItem="x3n-a8-agX" firstAttribute="top" secondItem="CG2-Zh-dDv" secondAttribute="bottom" constant="22" id="MVN-fP-ODE"/>
                             <constraint firstItem="y73-mV-LSK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="NMb-Be-RKC"/>
-                            <constraint firstAttribute="centerX" secondItem="8sP-o9-Tsa" secondAttribute="centerX" constant="-0.5" id="YJN-PC-lmW"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8sP-o9-Tsa" secondAttribute="bottom" constant="63" id="dFG-Ms-XO7"/>
                             <constraint firstAttribute="centerX" secondItem="y73-mV-LSK" secondAttribute="centerX" id="dnf-mQ-6xG"/>
                             <constraint firstAttribute="centerY" secondItem="LmL-GC-Quh" secondAttribute="centerY" constant="0.5" id="m6K-cz-hfr"/>
                             <constraint firstItem="x3n-a8-agX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="mNc-md-nhv"/>
@@ -178,7 +166,6 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ATz-Vm-FqW" secondAttribute="bottom" id="orw-ZW-6lc"/>
                             <constraint firstItem="ATz-Vm-FqW" firstAttribute="top" secondItem="y73-mV-LSK" secondAttribute="bottom" constant="25" id="oya-qU-ZQy"/>
                             <constraint firstItem="CG2-Zh-dDv" firstAttribute="top" secondItem="x3n-a8-agX" secondAttribute="bottom" constant="20" id="tdR-gw-wZD"/>
-                            <constraint firstItem="8sP-o9-Tsa" firstAttribute="top" secondItem="x3n-a8-agX" secondAttribute="bottom" constant="20" id="xKU-Ny-oBq"/>
                             <constraint firstAttribute="centerX" secondItem="x3n-a8-agX" secondAttribute="centerX" id="y0B-3L-Ajw"/>
                         </constraints>
                         <variation key="default">
@@ -189,12 +176,6 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Frx-2E-9A3">
-                        <barButtonItem key="leftBarButtonItem" image="Menu" id="PZJ-eP-Vat">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="presentLeftMenuViewController:" destination="BYZ-38-t0r" id="xb5-TS-9WH"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="share" id="FiS-ph-yGr">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -206,7 +187,6 @@
                     <connections>
                         <outlet property="activityView" destination="LmL-GC-Quh" id="Kx9-pu-BK5"/>
                         <outlet property="authorLabel" destination="y73-mV-LSK" id="qMs-e4-Gg8"/>
-                        <outlet property="authorPhoto" destination="8sP-o9-Tsa" id="Id3-n9-Q8K"/>
                         <outlet property="playButton" destination="CG2-Zh-dDv" id="6dR-Qs-3S3"/>
                         <outlet property="quoteLabel" destination="x3n-a8-agX" id="sXX-b0-9ap"/>
                         <outlet property="shareBarButtonItem" destination="r1e-7F-UNu" id="lIa-9Y-Xhq"/>
@@ -218,9 +198,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Author" width="357" height="200"/>
         <image name="High Volume Filled-100" width="54" height="54"/>
-        <image name="Menu" width="28" height="28"/>
         <image name="share" width="17" height="24"/>
     </resources>
 </document>
